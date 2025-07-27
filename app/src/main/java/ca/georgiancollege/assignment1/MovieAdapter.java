@@ -44,10 +44,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context.getApplicationContext(), DetailsActivity.class);
-
-                intent.putExtra("title", item.getTitle());
-                intent.putExtra("year", item.getYear());
-                intent.putExtra("poster", item.getTitle());
                 intent.putExtra("id", item.getImdbID());
                 context.startActivity(intent);
             }

@@ -2,7 +2,6 @@ package ca.georgiancollege.assignment1;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,9 +27,7 @@ public class DetailsActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(MovieViewModel.class);
 
         Intent intent = getIntent();
-        // String title = intent.getStringExtra("title");
         String id = intent.getStringExtra("id");
-        Log.i("tag", "id: "+ id);
 
         viewModel.getMovieProperties(id);
 

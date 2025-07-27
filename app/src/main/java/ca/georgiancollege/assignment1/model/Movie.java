@@ -11,6 +11,12 @@ public class Movie {
     private String country;
     private String plot;
 
+    public Movie(String imdbID, String title, String year, String poster) {
+        this.imdbID = imdbID;
+        this.title = title;
+        this.year = year;
+        this.poster = poster;
+    }
     public Movie(String imdbID, String title, String year, String poster, String rating, String director, String language, String country, String plot) {
         this.imdbID = imdbID;
         this.title = title;

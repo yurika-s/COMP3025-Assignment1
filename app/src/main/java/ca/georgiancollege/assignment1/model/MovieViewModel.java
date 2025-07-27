@@ -21,7 +21,6 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class MovieViewModel extends ViewModel {
-    //Movie movieModel = new Movie();
     private final MutableLiveData<List<Movie>> movieList = new MutableLiveData<>();
     private final MutableLiveData<Movie> movieDetail = new MutableLiveData<>();
 
@@ -62,7 +61,7 @@ public class MovieViewModel extends ViewModel {
                         String year = item.getString("Year");
                         String poster = item.getString("Poster");
                         String imdbID = item.getString("imdbID");
-                        Movie movie = new Movie(imdbID,title, year, poster,"","","","","");
+                        Movie movie = new Movie(imdbID,title, year, poster);
                         movies.add(movie);
                     }
                     movieList.postValue(movies);
