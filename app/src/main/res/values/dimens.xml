@@ -6,8 +6,16 @@
     <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_8">8dp</dimen>
     <dimen name="margin_4">4dp</dimen>
+    <dimen name="spacing_12">12dp</dimen>
     <dimen name="spacing_16">16dp</dimen>
     <dimen name="header_vertical_bias">0.04</dimen>
     <dimen name="text_size_18">18sp</dimen>
     <dimen name="title_text_size">24sp</dimen>
+    <dimen name="btn_back_width">55dp</dimen>
+    <dimen name="btn_back_height">60dp</dimen>
+    <dimen name="search_poster_length">120dp</dimen>
+    <dimen name="details_poster_width">200dp</dimen>
+    <dimen name="details_poster_height">300dp</dimen>
+    <dimen name="recyclerview_width">410dp</dimen>
+    <dimen name="recyclerview_height">600dp</dimen>
 </resources>
