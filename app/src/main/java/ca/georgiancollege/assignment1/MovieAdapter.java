@@ -37,7 +37,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
         holder.title.setText(item.getTitle());
         holder.year.setText(item.getYear());
-        Glide.with(context).load(item.getPoster()).into(holder.imageView);
+        Glide.with(context).load(item.getPoster()).into(holder.poster);
     }
 
     @Override

@@ -60,17 +60,14 @@ public class MovieViewModel extends ViewModel {
                     JSONArray list = json.getJSONArray("Search");
 
                     List<Movie> movies = new ArrayList<>();
-                    Log.i("tag", list.toString());
                     for(int i = 0; i<list.length(); i++){
-                        //Movie movie = new Movie(list[i].title)
                         JSONObject item = list.getJSONObject(i);
                         String title = item.getString("Title");
                         String year = item.getString("Year");
                         String poster = item.getString("Poster");
                         String imdbID = item.getString("imdbID");
-                        Movie movie = new Movie(imdbID,title, year, poster);
+                        Movie movie = new Movie(imdbID,title, year, poster,"","","","","");
                         movies.add(movie);
-                        Log.i("tag", "Movie: "+movie.toString());
                     }
                     movieList.postValue(movies);
 

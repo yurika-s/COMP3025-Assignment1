@@ -2,6 +2,7 @@ package ca.georgiancollege.assignment1.model;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,16 +12,22 @@ import ca.georgiancollege.assignment1.R;
 
 public class MovieViewHolder extends RecyclerView.ViewHolder {
 
-    public ImageView imageView;
+    public LinearLayout row;
     public TextView title;
+    // public TextView director;
     public TextView year;
+    // public TextView rating;
+    public ImageView poster;
 
     public MovieViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        imageView = itemView.findViewById(R.id.imageview);
-        title = itemView.findViewById(R.id.title_txt);
-        year = itemView.findViewById(R.id.year_txt);
+        row = itemView.findViewById(R.id.linerLayoutRow);
+        title = itemView.findViewById(R.id.textViewTitle);
+        // director = itemView.findViewById(R.id.textViewDirector);
+        year = itemView.findViewById(R.id.textViewYear);
+        // rating = itemView.findViewById(R.id.textViewRating);
+        poster = itemView.findViewById(R.id.imageViewPoster);
     }
 }
 
