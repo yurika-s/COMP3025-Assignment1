@@ -14,9 +14,7 @@ public class MovieViewHolder extends RecyclerView.ViewHolder {
 
     public LinearLayout row;
     public TextView title;
-    // public TextView director;
     public TextView year;
-    // public TextView rating;
     public ImageView poster;
 
     public MovieViewHolder(@NonNull View itemView) {
@@ -24,9 +22,7 @@ public class MovieViewHolder extends RecyclerView.ViewHolder {
 
         row = itemView.findViewById(R.id.linerLayoutRow);
         title = itemView.findViewById(R.id.textViewTitle);
-        // director = itemView.findViewById(R.id.textViewDirector);
         year = itemView.findViewById(R.id.textViewYear);
-        // rating = itemView.findViewById(R.id.textViewRating);
         poster = itemView.findViewById(R.id.imageViewPoster);
     }
 }

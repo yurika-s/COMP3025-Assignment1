@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.georgiancollege.assignment1.ApiClient;
-import ca.georgiancollege.assignment1.MovieAdapter;
-import ca.georgiancollege.assignment1.R;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -27,9 +25,7 @@ public class MovieViewModel extends ViewModel {
     private final MutableLiveData<List<Movie>> movieList = new MutableLiveData<>();
     private final MutableLiveData<Movie> movieDetail = new MutableLiveData<>();
 
-    private final String urlData = "https://www.omdbapi.com/?apikey=7a52e74b&type=movie&page=1&";
-    private final String urlPoster = "https://img.omdbapi.com/?apikey=7a52e74b&";
-
+    private final String apiBaseUrl = "https://www.omdbapi.com/?apikey=7a52e74b&type=movie&page=1&";
 
     public MovieViewModel() {
     }
@@ -42,7 +38,7 @@ public class MovieViewModel extends ViewModel {
     }
 
     public void searchMovies(String keyword){
-        String urlString = urlData + "s=" + keyword;
+        String urlString = apiBaseUrl + "s=" + keyword;
         ApiClient.get(urlString, new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
@@ -79,4 +75,41 @@ public class MovieViewModel extends ViewModel {
         });
     }
 
+    public void getMovieProperties(String imdbID) {
+        String parameter = "&plot=full&i=" + imdbID;
+        String urlString = apiBaseUrl + parameter;
+
+        ApiClient.get(urlString, new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                Log.i("tag", "error(properties) :"+ e.getMessage());
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                assert response.body() != null;
+                String responseData = response.body().string();
+                Log.i("tag", "passed");
+
+                JSONObject json = null;
+                try {
+                    json = new JSONObject(responseData);
+                    String imdbID = json.getString("imdbID");
+                    String title = json.getString("Title");
+                    String year = json.getString("Year");
+                    String poster = json.getString("Poster");
+                    String rating = json.getString("Rated");
+                    String director = json.getString("Director");
+                    String language = json.getString("Language");
+                    String country = json.getString("Country");
+                    String plot = json.getString("Plot");
+                    Movie movie = new Movie(imdbID, title, year, poster, rating, director, language, country, plot);
+
+                    movieDetail.postValue(movie);
+                } catch (JSONException e) {
+                    throw new RuntimeException();
+                }
+            }
+        });
+    }
 }

@@ -1,6 +1,7 @@
 package ca.georgiancollege.assignment1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,20 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
 
         holder.title.setText(item.getTitle());
         holder.year.setText(item.getYear());
-        Glide.with(context).load(item.getPoster()).into(holder.poster);
+        Glide.with(context.getApplicationContext()).load(item.getPoster()).into(holder.poster);
+
+        holder.row.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context.getApplicationContext(), DetailsActivity.class);
+
+                intent.putExtra("title", item.getTitle());
+                intent.putExtra("year", item.getYear());
+                intent.putExtra("poster", item.getTitle());
+                intent.putExtra("id", item.getImdbID());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -40,15 +40,8 @@ public class MainActivity extends AppCompatActivity {
             LinearLayoutManager layoutManager = new LinearLayoutManager(this);
             binding.recyclerView.setLayoutManager(layoutManager);
 
-            movieAdapter = new MovieAdapter(getApplicationContext(), Movies);
+            movieAdapter = new MovieAdapter(this, Movies);
             binding.recyclerView.setAdapter(movieAdapter);
-        });
-
-        binding.recyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
         });
     }
 }
